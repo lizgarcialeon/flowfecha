@@ -1,0 +1,74 @@
+[
+    {
+        "id": "e3a798b6db450342",
+        "type": "tab",
+        "label": "Flow Fecha",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c0801c88ea210e51",
+        "type": "inject",
+        "z": "e3a798b6db450342",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "num",
+        "x": 130,
+        "y": 60,
+        "wires": [
+            [
+                "6b6da99383bbd4ad"
+            ]
+        ]
+    },
+    {
+        "id": "df1f1caa530db5ab",
+        "type": "debug",
+        "z": "e3a798b6db450342",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "6b6da99383bbd4ad",
+        "type": "function",
+        "z": "e3a798b6db450342",
+        "name": "",
+        "func": "// Lo que está después de “//” son comentarios\n// Crea un objeto Date a partir del payload enviado por timestamp\nvar date = new Date(msg.payload);\n// Cambia el payload para que sea una fecha con formato\nmsg.payload = date.toString();\n// Regresa el mensaje para que se envíe al sigueinte nodo\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 80,
+        "wires": [
+            [
+                "df1f1caa530db5ab"
+            ]
+        ]
+    }
+]
